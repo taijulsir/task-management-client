@@ -6,6 +6,9 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Home/Register/Register";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
+import CreateTask from "../Pages/CreateTask/CreateTask";
+import ToDoList from "../Pages/ToDoList/ToDoList";
+
 
 const router = createBrowserRouter([
     {
@@ -24,10 +27,21 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            }
+        ]
+    },
+    {
+        path: "/dashboard",
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        errorElement: <ErrorPage></ErrorPage>,
+        children: [
+            {
+                path: "createTask",
+                element: <CreateTask></CreateTask>
             },
             {
-                path: '/dashboard',
-                element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
+                path: "toDoList",
+                element: <ToDoList></ToDoList>
             }
         ]
     }
