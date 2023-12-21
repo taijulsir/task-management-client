@@ -57,20 +57,20 @@ const Footer = () => {
           className="hover:underline mx-1">Unique TaskHub</a>All Rights Reserved.
         </p>
         <div className="flex space-x-5 max-sm:mt-4">
-          <a  className="text-zinc-950 hover:fill-indigo-500 text-base transition-all">
+          <a  className="text-zinc-950 hover:fill-indigo-500 text-base transition-all" href="https://www.facebook.com/taijulislam41">
             <svg className="w-5 h-5 fill-gray-400 hover:fill-indigo-500" viewBox="0 0 24 24" aria-hidden="true">
               <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63
                   .772-1.63 1.558V12h2.77l-.443 2.89h-2.327V22C18.343 21.128 22 16.991 22 12"></path>
             </svg>
           </a>
-          <a  className="text-zinc-950 hover:text-orange-600 text-base transition-all">
+          <a  className="text-zinc-950 hover:text-orange-600 text-base transition-all" href="https://www.linkedin.com/in/taijulislammd/">
             <svg className="w-5 h-5 fill-gray-400 hover:fill-indigo-500" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 2C6.486 2 2 6.486 2 12c0 5.513 4.486 10 10 10s10-4.487 10-10c0-5.514-4.486-10-10-10zm0 1.542c4.951 0 8.458 3.392 8.458 8.458 0 4.949-3.391 8.458-8.458 8.458-4.948 0-8.458-3.391-8.458-8.458
                       0-4.949 3.392-8.458 8.458-8.458zM9.743 16.747V7.128l6.027 4.31-6.027 4.309z">
               </path>
             </svg>
           </a>
-          <a  className="text-zinc-950 hover:text-orange-600 text-base transition-all">
+          <a  className="text-zinc-950 hover:text-orange-600 text-base transition-all" href="https://www.linkedin.com/in/taijulislammd/">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" className="fill-gray-400 hover:fill-indigo-500  w-5 h-5"
               viewBox="0 0 24 24">
               <path fillRule="evenodd"
