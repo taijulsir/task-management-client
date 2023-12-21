@@ -6,10 +6,10 @@ const Navbar = () => {
     const navlinks =
         <>
 
-            <li className="text-lg font-medium mr-2"><NavLink className={({ isActive }) => (isActive ? 'active ' : 'inactive')}>Home</NavLink></li>
-            <li className="text-lg font-medium mr-2"><NavLink className={({ isActive }) => (isActive ? 'active ' : 'inactive')}>Home</NavLink></li>
-            <li className="text-lg font-medium mr-2"><NavLink className={({ isActive }) => (isActive ? 'active ' : 'inactive')}>Home</NavLink></li>
-            <li className="text-lg font-medium mr-2"><NavLink className={({ isActive }) => (isActive ? 'active ' : 'inactive')}>Home</NavLink></li>
+            <li className="text-lg font-medium mr-2"><NavLink to='/'  className={({ isActive }) => (isActive ? 'active ' : 'inactive')}>Home</NavLink></li>
+            <li className="text-lg font-medium mr-2"><NavLink to='/dashboard' className={({ isActive }) => (isActive ? 'active ' : 'inactive')}>Dashboard</NavLink></li>
+            <li className="text-lg font-medium mr-2"><NavLink to='/aboutUs' className={({ isActive }) => (isActive ? 'active ' : 'inactive')}>About Us</NavLink></li>
+            <li className="text-lg font-medium mr-2"><NavLink to='/contact' className={({ isActive }) => (isActive ? 'active ' : 'inactive')}>Contact</NavLink></li>
         </>
 
     return (
@@ -24,7 +24,7 @@ const Navbar = () => {
                             {navlinks}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl shadow-xl bg-slate-300 text-zinc-400">Unique <span className=" text-green-500">TaskHub</span></a>
+                    <a className="btn btn-ghost text-2xl shadow-xl font-semibold text-zinc-950">Unique <span className=" text-green-600">TaskHub</span></a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
