@@ -5,7 +5,7 @@ const Banner = () => {
     const {user} = AuthHook()
     return (
         <div >
-            <div className="py-20 dark:bg-gray-700" style={{backgroundImage: 'url(https://i.ibb.co/W6Pknr5/top-view-desk-with-notepad-clock.jpg)', backgroundSize:'cover',backgroundRepeat: 'no-repeat'}}>
+            <div className="py-20 h-[400px] md:h-[700px] dark:bg-gray-700" style={{backgroundImage: 'url(https://i.ibb.co/W6Pknr5/top-view-desk-with-notepad-clock.jpg)', backgroundSize:'cover',backgroundRepeat: 'no-repeat'}}>
                 <div className="max-w-7xl px-4 mx-auto md:px-0 font-poppins">
                     <div className="flex flex-wrap items-center px-4">
                         <div className="w-full px-4 mb-16 md:w-1/2 md:mb-0">
@@ -24,7 +24,7 @@ const Banner = () => {
                                 className="inline-flex items-center justify-center px-8 py-3 text-gray-100 bg-blue-600 rounded-md shadow hover:text-gray-100 hover:bg-blue-500 ">
                                 Explore Now</Link>
                         </div>
-                        <div className="w-full px-4 md:w-1/2">
+                        <div className="w-full px-4 md:w-1/2 hidden lg:flex">
                             <div className="relative mx-auto md:mr-0 max-w-max">                               
                                 <div className="relative overflow-hidden rounded-7xl">
                                     <img src="https://i.ibb.co/44qb8N5/3121087.png" alt=""
