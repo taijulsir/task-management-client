@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import AuthHook from "../../Hooks/AuthHook";
 
 const Banner = () => {
     const {user} = AuthHook()
     return (
-        <div className=" -mt-3">
+        <div >
             <div className="py-20 dark:bg-gray-700" style={{backgroundImage: 'url(https://i.ibb.co/W6Pknr5/top-view-desk-with-notepad-clock.jpg)', backgroundSize:'cover',backgroundRepeat: 'no-repeat'}}>
                 <div className="max-w-7xl px-4 mx-auto md:px-0 font-poppins">
                     <div className="flex flex-wrap items-center px-4">
@@ -19,9 +20,9 @@ const Banner = () => {
                             <p className="mb-6 font-medium tracking-wide text-gray-600 dark:text-gray-400 md:text-lg">
                             Experience a new era of productivity. Unique TaskHub is your gateway to efficiency – simplify tasks, collaborate in real-time, and achieve success effortlessly.
                             </p>
-                            <a 
+                            <Link  to={user? '/dashboard' : '/login'}
                                 className="inline-flex items-center justify-center px-8 py-3 text-gray-100 bg-blue-600 rounded-md shadow hover:text-gray-100 hover:bg-blue-500 ">
-                                Explore Now</a>
+                                Explore Now</Link>
                         </div>
                         <div className="w-full px-4 md:w-1/2">
                             <div className="relative mx-auto md:mr-0 max-w-max">                               

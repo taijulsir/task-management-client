@@ -11,6 +11,7 @@ const Navbar = () => {
             <li className="text-lg font-medium mr-2"><NavLink to='/dashboard' className={({ isActive }) => (isActive ? 'active ' : 'inactive')}>Dashboard</NavLink></li>
             <li className="text-lg font-medium mr-2"><NavLink to='/aboutUs' className={({ isActive }) => (isActive ? 'active ' : 'inactive')}>About Us</NavLink></li>
             <li className="text-lg font-medium mr-2"><NavLink to='/contact' className={({ isActive }) => (isActive ? 'active ' : 'inactive')}>Contact</NavLink></li>
+            <li className="text-lg font-medium mr-2 lg:hidden"><NavLink to='/login' className={({ isActive }) => (isActive ? 'active ' : 'inactive')}>Login</NavLink></li>
         </>
 
     return (
@@ -25,14 +26,14 @@ const Navbar = () => {
                             {navlinks}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-2xl shadow-xl font-semibold text-zinc-950">Unique <span className=" text-green-600">TaskHub</span></a>
+                    <a className="btn btn-ghost text-2xl  font-semibold text-zinc-950">Unique <span className=" text-green-600">TaskHub</span></a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {navlinks}
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div className="navbar-end hidden lg:flex">
                 <Link to='/login'
                         className="inline-block px-4 py-3 mr-2 text-lg font-medium leading-none text-blue-600 border border-blue-200 rounded dark:hover:border-blue-300 dark:hover:text-blue-300 dark:text-gray-400 dark:border-gray-400 hover:text-blue-700 hover:border-blue-300">Log
                         In</Link>
