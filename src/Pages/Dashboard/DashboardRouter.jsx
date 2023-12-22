@@ -1,22 +1,12 @@
 
 import { FaBook, FaHeart, FaSuperpowers } from "react-icons/fa";
-import { MdOutlineDashboard } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 
 const DashboardRouter = () => {
     return (
         <div>
-            <li>
-                <Link
-                
-                    className="flex items-center px-6 py-4 text-white dark:text-gray-400 group dark:hover:bg-gray-700 hover:bg-gray-600 hover:rounded-md">
-                    <span className="inline-block mr-3">
-                        <MdOutlineDashboard className="text-2xl"></MdOutlineDashboard>
-                    </span>
-                    <span>My Profile</span>
-                </Link>
-            </li>
+          
             <li>
                 <Link
                 to="createTask"

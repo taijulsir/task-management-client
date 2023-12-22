@@ -30,6 +30,7 @@ const ToDoList = () => {
                     </div>
                     <div> 
                         <h1>Ongoing</h1>
+                       
                     </div>
                     <div>
                         <h1>Complete</h1>
