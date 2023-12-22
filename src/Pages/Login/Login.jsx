@@ -24,7 +24,7 @@ const Login = () => {
                 const result = results.user;
                 console.log(result)
                 // after login 
-                navigate(location?.state ? location.state : '/')
+                navigate(location?.state ? location.state : '/dashboard')
                 Swal.fire({
                     icon: 'success',
                     title: 'Success!',
@@ -43,7 +43,7 @@ const Login = () => {
             .then(result => {
                 const users = result.user
                 console.log(users)
-                navigate(location?.state ? location.state : '/')
+                navigate(location?.state ? location.state : '/dashboard')
                 Swal.fire({
                     icon: 'success',
                     title: 'Success!',
