@@ -1,20 +1,26 @@
 import { useForm } from "react-hook-form";
 import AuthHook from "../../Hooks/AuthHook";
+import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 
 
 const CreateTask = () => {
     const { user } = AuthHook()
-    const { register, handleSubmit } = useForm();
-    const onSubmit = (data) => {
-  
+    const { register, handleSubmit,reset } = useForm();
+    const onSubmit = async (data) => {
         const task = {
             title: data.title,
             description: data.description,
             time: data.time,
             deadline: data.deadline,
-            priority: data.priority
+            priority: data.priority,
+            email: user?.email,
         }
-        console.log(task)
+        const res = await axios.post("http://localhost:5000/createTask", task)
+        if (res.data.insertedId) {
+           toast.success("Succesfully created task")
+           reset()
+        }
     }
 
     return (
@@ -63,6 +69,7 @@ const CreateTask = () => {
                 <button type="submit"
                     className="mt-8 px-6 py-2.5 text-sm w-full font-semibold bg-[#007bff] text-white rounded hover:bg-[#006bff]">Submit</button>
             </form>
+            <Toaster></Toaster>
         </div>
     );
 };
