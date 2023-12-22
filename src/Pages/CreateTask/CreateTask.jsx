@@ -15,6 +15,7 @@ const CreateTask = () => {
             deadline: data.deadline,
             priority: data.priority,
             email: user?.email,
+            status: "To-Do"
         }
         const res = await axios.post("http://localhost:5000/createTask", task)
         if (res.data.insertedId) {
