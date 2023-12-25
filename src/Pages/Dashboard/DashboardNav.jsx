@@ -15,9 +15,9 @@ const DashBoardNav = ({open,setOpen,dropdown,setDropdown}) => {
     const navigate = useNavigate()
     const handleLogout = () => {
         logout()
-        navigate('/')
         .then()
         .catch(error=>console.log(error))
+        navigate('/')
     }
     return (
         <div>

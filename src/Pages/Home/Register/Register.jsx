@@ -6,16 +6,12 @@ import toast, { Toaster } from "react-hot-toast";
 import Swal from "sweetalert2";
 import AuthHook from "../../../Hooks/AuthHook";
 const Register = () => {
-    const { createUser, profileUpdate, signOutUser, googleLogin } = AuthHook()
+    const { createUser, profileUpdate, logout, googleLogin } = AuthHook()
     const [showPassword, setShowPassword] = useState(false)
     const navigate = useNavigate()
 
-
-
-
     // email login
     const handleEmailLogin = (e) => {
-
 
         e.preventDefault();
         const email = e.target.email.value;
@@ -37,6 +33,9 @@ const Register = () => {
             .then(results => {
                 console.log(results.user)
                 profileUpdate(name, photoUrl)
+                toast.success("User created succesfully,Now Login")
+                logout()
+                navigate('/login')
                     .then(results => {
                         console.log(results)
                     })
@@ -44,7 +43,7 @@ const Register = () => {
                         console.log(errors)
                     })
                 toast.success("User created succesfully,Now Login")
-                signOutUser()
+                logout()
                 navigate('/login')
             })
             .catch(error => {
@@ -64,8 +63,8 @@ const Register = () => {
                     title: 'Success!',
                     text: 'Registration Succesful,Now login.'
                 });
-                signOutUser()
-                navigate('/login')
+                logout()
+                navigate('/dashboard')
             })
             .catch(error => {
                 const errorMessage = error.message;

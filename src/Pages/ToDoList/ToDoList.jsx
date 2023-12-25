@@ -9,7 +9,7 @@ const ToDoList = () => {
     const { data: tasks = []} = useQuery({
         queryKey: ["newTask", user?.email],
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/toDoList/${user?.email}`)
+            const res = await axios.get(`https://task-management-server-sigma-beryl.vercel.app/toDoList/${user?.email}`)
             return res.data;
         }
     })

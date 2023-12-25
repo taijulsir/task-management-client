@@ -32,7 +32,7 @@ const DashBoard = () => {
                                 className="flex items-center w-full px-4 pt-4 pb-4 mb-4 border-b border-gray-200 dark:border-gray-700">
                                 <Link to='/dashboard'>
                                     <div className="flex items-center ml-2">
-                                        <img src="https://i.ibb.co/LQ5jG4p/logo.png" className='h-12 w-28 lg:h-16 lg:w-36' alt="" />
+                                       <h1 className="text-xl font-bold">Unique <span className="text-green-600">TaskHub</span></h1>
                                     </div>
                                 </Link>
                             </div>

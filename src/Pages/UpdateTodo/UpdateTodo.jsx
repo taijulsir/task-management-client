@@ -21,7 +21,7 @@ const UpdateTodo = () => {
       deadline: data.deadline,
     };
     const Taskres = await axios.patch(
-      `http://localhost:5000/toDoList/${_id}`,
+      `https://task-management-server-sigma-beryl.vercel.app/toDoList/${_id}`,
       taksiteam
     );
     if (Taskres.data.modifiedCount > 0) {

@@ -48,7 +48,7 @@ const router = createBrowserRouter([
             {
                 path: "updateTask/:id",
                 element: <UpdateTodo></UpdateTodo>,
-                loader: ({params}) => fetch(`http://localhost:5000/updatetask/${params.id}`)
+                loader: ({params}) => fetch(`https://task-management-server-sigma-beryl.vercel.app/updatetask/${params.id}`)
             }
         ]
     }

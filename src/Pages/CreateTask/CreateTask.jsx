@@ -16,9 +16,9 @@ const CreateTask = () => {
             deadline: data.deadline,
             priority: data.priority,
             email: user?.email,
-            status: "To-Do"
+            status: "todo"
         }
-        const res = await axios.post("http://localhost:5000/createTask", task)
+        const res = await axios.post("https://task-management-server-sigma-beryl.vercel.app/createTask", task)
         if (res.data.insertedId) {
             toast.success("Succesfully created task")
             reset()

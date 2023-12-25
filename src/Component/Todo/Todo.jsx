@@ -10,6 +10,7 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import AuthHook from "../../Hooks/AuthHook";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import toast, { Toaster } from "react-hot-toast";
 
 
 const Todo = () => {
@@ -18,15 +19,17 @@ const Todo = () => {
     const [progress, setProgress] = useState([]);
     const [completed, setCompleted] = useState([]);
     const [task, setTasks] = useState([]);
+    // eslint-disable-next-line no-unused-vars
     const { data: tasks = [],refetch } = useQuery({
         queryKey: ["newTask", user?.email],
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/toDoList/${user?.email}`)
+            const res = await axios.get(`https://task-management-server-sigma-beryl.vercel.app/toDoList/${user?.email}`)
             setTasks(res.data)
             return res.data;
         }
     })
 
+    console.log(task)
   
 
     useEffect(() => {
@@ -66,7 +69,7 @@ const Todo = () => {
         }).then((result) => {
             console.log(id)
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/taskDelete/${id}`).then((res) => {
+                axios.delete(`https://task-management-server-sigma-beryl.vercel.app/taskDelete/${id}`).then((res) => {
                     if (res.data.deletedCount > 0) {
                         refetch();
                         Swal.fire({
@@ -97,17 +100,20 @@ const Todo = () => {
 
         console.log(draggableId);
      
-            axios.patch(`/task?id=${draggableId}`, {
+            axios.patch(`https://task-management-server-sigma-beryl.vercel.app/task/${draggableId}`, {
                 status: destination.droppableId,
             })
-            .then(() => {
+            .then((res) => {
+                if(res.data.modifiedCount >0) {
+                    toast.success("Status Updated")
+                }
                 refetch();
             });
     };
 console.log(todo)
     return (
         <div className="px-5">
-            <div className="flex justify-center items-center content-center mt-5">
+            <div className="flex  justify-center items-center content-center mt-5 text-white">
                 <h1 className="mx-auto text-center text-3xl">
                     Welcome Back{" "}
                     <span className=" text-blue-500">{user?.displayName},</span> Here Your
@@ -141,7 +147,7 @@ console.log(todo)
                                     ref={provided.innerRef}
                                     className="bg-[#EEF2F5] px-4"
                                 >
-                                    <div className="h-[500px]">
+                                    <div className=" min-h-screen">
                                         <h1 className="text-center mt-3 mb-3">Todo</h1>
                                         {todo?.map((task, index) => (
                                             <Draggable
@@ -160,7 +166,7 @@ console.log(todo)
                                                         <div className="px-4 pt-4">
                                                             <div className="relative">
                                                                 <div className="flex justify-between items-center">
-                                                                    <h1 className="text-red-600">{task.title}</h1>
+                                                                    <h1 className="text-red-600 uppercase">{task.title}</h1>
                                                                     <button
                                                                         id={`dropdownButton-${task._id}`}
                                                                         onClick={() => toggleDropdown(task._id)}
@@ -214,8 +220,8 @@ console.log(todo)
                                                         </div>
 
                                                         <div className="p-4">
-                                                            <h1 className="text-2xl">{task.Title}</h1>
-                                                            <p>{task.Description}</p>
+                                                            <h1 className="text-2xl text-red-600 uppercase">{task.Title}</h1>
+                                                            <p>{task.description}</p>
                                                             <div className="flex items-center justify-between mt-4">
                                                                 <span>
                                                                     <img
@@ -224,7 +230,7 @@ console.log(todo)
                                                                         alt=""
                                                                     />
                                                                 </span>
-                                                                <span>10 January</span>
+                                                                <span>{task.deadline}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -247,7 +253,7 @@ console.log(todo)
                                     ref={provided.innerRef}
                                     className="bg-[#EEF2F5] px-4"
                                 >
-                                    <div className="h-[500px]">
+                                    <div className=" min-h-screen">
                                         <h1 className="text-center mt-3 mb-3">Progress</h1>
                                         {progress?.map((task, index) => (
                                             <Draggable
@@ -266,7 +272,7 @@ console.log(todo)
                                                         <div className="px-4 pt-4">
                                                             <div className="relative">
                                                                 <div className="flex justify-between items-center">
-                                                                    <h1>{task.priority}</h1>
+                                                                    <h1 className="text-red-600 uppercase">{task.title}</h1>
                                                                     <button
                                                                         id={`dropdownButton-${task._id}`}
                                                                         onClick={() => toggleDropdown(task._id)}
@@ -320,8 +326,8 @@ console.log(todo)
                                                         </div>
 
                                                         <div className="p-4">
-                                                            <h1 className="text-2xl">{task.Title}</h1>
-                                                            <p>{task.Description}</p>
+                                                            <h1 className="text-2xl text-red-600 uppercase">{task.Title}</h1>
+                                                            <p>{task.description}</p>
                                                             <div className="flex items-center justify-between mt-4">
                                                                 <span>
                                                                     <img
@@ -353,7 +359,7 @@ console.log(todo)
                                     ref={provided.innerRef}
                                     className="bg-[#EEF2F5] px-4"
                                 >
-                                    <div className="h-[500px]">
+                                    <div className=" min-h-screen">
                                         <h1 className="text-center mt-3 mb-3">Complete</h1>
                                         {completed?.map((task, index) => (
                                             <Draggable
@@ -372,7 +378,7 @@ console.log(todo)
                                                         <div className="px-4 pt-4">
                                                             <div className="relative">
                                                                 <div className="flex justify-between items-center">
-                                                                    <h1>{task.priority}</h1>
+                                                                    <h1 className="text-red-600 uppercase">{task.title}</h1>
                                                                     <button
                                                                         id={`dropdownButton-${task._id}`}
                                                                         onClick={() => toggleDropdown(task._id)}
@@ -426,8 +432,8 @@ console.log(todo)
                                                         </div>
 
                                                         <div className="p-4">
-                                                            <h1 className="text-2xl">{task.Title}</h1>
-                                                            <p>{task.Description}</p>
+                                                            <h1 className="text-2xl uppercase text-red-600">{task.Title}</h1>
+                                                            <p>{task.description}</p>
                                                             <div className="flex items-center justify-between mt-4">
                                                                 <span>
                                                                     <img
@@ -453,6 +459,7 @@ console.log(todo)
 
                 </DragDropContext>
             </div>
+            <Toaster></Toaster>
         </div>
     );
 };
